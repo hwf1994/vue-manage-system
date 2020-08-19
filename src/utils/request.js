@@ -22,6 +22,15 @@ const http = axios.create({
 //请求拦截器
 http.interceptors.request.use(
     config => {
+//    	var encode="USERID "+window.btoa('9'+":"+"dfsdfsadfasdf")
+//    	var encode=window.btoa('9'+":"+"dfsdfsadfasdf")
+//    	console.log(window.atob(encode))
+//  	if(config.url.match(/login/)){   //当打印pdf文件时
+//			return config
+//		}
+//		if(Cookies.get("Aztec")){   //登录后添加验证签名
+//			 config.headers['token']= JSON.parse(Cookies.get("Aztec")).token;  
+//	    }
         return config;
     },
     error => {

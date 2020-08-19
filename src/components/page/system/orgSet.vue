@@ -22,9 +22,8 @@
 					  :on-success="res=>$set(ruleForm,'logo_image',`http://qf3kxzyub.hn-bkt.clouddn.com/${res.key}`)"
 					  :before-upload="beforeAvatarUpload">
 					  <img v-if="ruleForm.logo_images" :src="ruleForm.logo_image" class="avatar">
-					  <div v-else style="margin-top: 60px;">
+					  <div v-else>
 					  	 <i class="el-icon-plus avatar-uploader-icon"></i>
-					  	 <p>点击上传logo</p>
 					  </div>
 					</el-upload>
                   </el-form-item>
@@ -133,4 +132,11 @@
 <style>
 	.demo-ruleForm{width: 30%;}
 	.el-upload--text{width: 100%;}
+	.avatar-uploader-icon {
+	    font-size: 28px;
+	    color: #8c939d;
+	    width: 178px;
+	    line-height: 178px;
+	    text-align: center;
+	}
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="teacher">
         <div class="crumbs">
             <el-breadcrumb separator="/">
                 <el-breadcrumb-item>
@@ -95,7 +95,7 @@
 							  action="http://upload-z2.qiniup.com"
 							  :show-file-list="false"
 							  :data="uploadToken"
-							  :on-success="res=>$set(form,'image',`http://qf3kxzyub.hn-bkt.clouddn.com/${res.key}`);$refs.form.clearValidate()"
+							  :on-success="res=>{$set(form,'image',`http://qf3kxzyub.hn-bkt.clouddn.com/${res.key}`);$refs.form.clearValidate()}"
 							  :before-upload="beforeAvatarUpload">
 							  <img v-if="form.image" :src="form.image" class="avatar">
 							  <i v-else class="el-icon-plus avatar-uploader-icon"></i>
@@ -109,7 +109,7 @@
 							  action="http://upload-z2.qiniup.com"
 							  :show-file-list="false"
 							  :data="uploadToken"
-							  :on-success="res=>$set(form,'images',`http://qf3kxzyub.hn-bkt.clouddn.com/${res.key}`);$refs.form.clearValidate()"
+							  :on-success="res=>{$set(form,'images',`http://qf3kxzyub.hn-bkt.clouddn.com/${res.key}`);$refs.form.clearValidate()}"
 							  :before-upload="beforeAvatarUpload">
 							  <img v-if="form.images" :src="form.images" class="avatar">
 							  <i v-else class="el-icon-plus avatar-uploader-icon"></i>
@@ -231,11 +231,10 @@ export default {
             this.getData();
         },
         
-        //图片上传
+        //图片上传之前获取token
         async beforeAvatarUpload(){
         	 const res = await this.$get('http://localhost:3000/upload_token')
              this.uploadToken.token=res.data.uploadToken
-             console.log(this.uploadToken.token)
         }
     }
 };
@@ -283,7 +282,7 @@ export default {
   .avatar-uploader .el-upload:hover {
     border-color: #409EFF;
   }
-  .avatar-uploader-icon {
+.teacher .avatar-uploader-icon {
     font-size: 28px;
     color: #8c939d;
     width: 178px;
